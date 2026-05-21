@@ -170,7 +170,7 @@ kubectl run load-test --image=busybox \
 
 | All Pods | HPA Active |
 |----------|------------|
-| ![pods](screenshots/pods.png) | ![hpa](screenshots/hpa.png) |
+| ![pods](Screenshot 2026-05-21 at 2.24.51 PM.png) | ![hpa](Screenshot 2026-05-21 at 2.25.38 PM.png) |
 
 ---
 
