@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jobportal
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jobportal
+  template:
+    metadata:
+      labels:
+        app: jobportal
+    spec:
+      containers:
+        - name: jobportal
+          image: 786401693520.dkr.ecr.us-east-1.amazonaws.com/jobportal:latest
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: jobportal-config
+          env:
+            - name: DB_PASSWORD
+              value: jobportal123
+            - name: SECRET_KEY
+              value: django-insecure-k8s-secret-key
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
